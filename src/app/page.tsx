@@ -1,6 +1,6 @@
 "use client"
 import { useEffect, useState } from "react";
-import moment from "moment";
+
 import Image from "next/image";
 import Link from "next/link";
 import ProjectCard from "./components/ProjectCard";
@@ -22,23 +22,10 @@ import {
 } from "react-icons/si";
 
 export default function Home() {
-  const [visitDate, setVisitDate] = useState("");
-  const [visitTime, setVisitTime] = useState("");
+ 
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const visitTimestamp = localStorage.getItem("visitTimestamp");
-    if (visitTimestamp) {
-      const lastVisit = moment(visitTimestamp);
-      setVisitDate(lastVisit.format("MMMM Do YYYY"));
-      setVisitTime(lastVisit.format("h:mm:ss a"));
-    } else {
-      const now = moment();
-      localStorage.setItem("visitTimestamp", now.format());
-      setVisitDate(now.format("MMMM Do YYYY"));
-      setVisitTime(now.format("h:mm:ss a"));
-    }
-  }, []);
+  
 
   useEffect(() => {
     // Simulate a loading delay
@@ -53,11 +40,8 @@ export default function Home() {
     return <Loader />;
   }
   return (
-    <main className="px-10">
-<section className="flex justify-between item-center">
-<p className="text-white text-xl py-10 italic">Dr_Seps</p>
-<p className="text-white text-xl py-10 italic">{visitDate} | {visitTime}</p>
-</section>
+    <main >
+
       <section className=" h-auto flex flex-col justify-center items-start mt-6 mb-24  ">
         {/* Hero Section(Main) */}
         <div className="flex items-center justify-center px-3 py-2 gap-x-2 bg-white/10 rounded-full group my-6 hover:cursor-pointer">
@@ -165,6 +149,29 @@ export default function Home() {
         </div>
         </div>
       </section>
+
+      <section className="flex flex-col justify-center items-center py-36 ">
+<div className="flex justify-center items-center gap-6">
+  <hr className="w-10 h-[0.1rem]"/>
+<h2 className="text-[4rem] text-white">Interested in working together ?</h2>
+<hr className="w-10 h-[0.1rem]"/>
+</div>
+<div className="flex justify-center items-center gap-4 my-2">
+<button className="border border-white  text-white rounded-sm text-sm font-bold px-8 py-[0.9em] hover:border-none hover:bg-green-300 hover:text-white ">
+  <Link href="">
+  Send A Message
+  </Link>
+</button>{" "}
+<span className="text-white text-4xl"> / </span>
+<button className="border border-white  text-white rounded-sm text-sm font-bold px-8 py-[0.9rem] hover:border-none hover:bg-green-300 hover:text-white">
+  <Link href="">
+  Schedule A Meeting
+  </Link>
+</button>
+</div>
+      </section>
+
+     
     </main>
   );
 }

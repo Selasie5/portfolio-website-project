@@ -22,7 +22,7 @@ export default function Loader() {
   }, []);
 
   return (
-    <div className="  fixed inset-0 flex flex-col items-end justify-end px-20 py-10 bg-blue-950   z-50">
+    <div className="  fixed inset-0 flex flex-col items-end justify-end px-20 py-10 container   z-50">
       <span className=' text-white text-5xl'>
       {progress} %
       </span>

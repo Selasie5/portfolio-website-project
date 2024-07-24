@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Header from "./components/Header";
+import Link from "next/link"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,8 +17,36 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} body`}>{children}</body>
+    <html lang="en" className="px-10">
+      <body className={`${inter.className} body`}>
+      <Header/>
+        {children}
+        <footer className="flex justify-between items-center my-10">
+        <div className="flex justify-center items-start gap-3">
+          <span className="text-white text-xl">
+            <Link href="">
+            Github
+            </Link>
+          </span> {" "} <span className="text-white">|</span> {" "}
+          <span className="text-white text-xl">
+            <Link href="">
+            Linkedin
+            </Link>
+          </span> {" "} <span className="text-white">|</span> {" "}
+          <span className="text-white text-xl">
+            <Link href="">
+            Twitter
+            </Link>
+          </span> {" "} <span className="text-white">|</span> {" "}
+          <span className="text-white text-xl">
+            <Link href="">
+            Email
+            </Link>
+          </span> 
+        </div>
+<span className="text-white">Designed and developed by Selasie Sepenu</span>
+      </footer>
+        </body>
     </html>
   );
 }
