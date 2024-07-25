@@ -65,7 +65,7 @@ export default function Home() {
        
 
         {/* About Me  */}
-         <div className="pt-10 w-2/3">
+         <div className="pt-10 md:w-2/3">
          <p className="text-white text-lg font-[100] leading-normal">I am currently a software engineering fellow at {" "}
           <span className="font-normal text-green-300">
           <Link href="">
@@ -103,8 +103,8 @@ export default function Home() {
           <ProjectCard title="ElastiSearch"  overview="This is a fullstack web application that leverages the high-performace searching ability of PostgreSQL to model a search engine for a database seeded with jacket data " githubLink="" liveLink="" techStack={["Next JS","Tailwind CSS", "Typescript","Neon","PostgreSQL","Drizzle ORM","Render"]} bgColor="bg-emerald-500/30" hoverBgColor="hover:bg-emerald-500/50"/>
         </div>
       </section>
-      <section className="flex  justify-center items-center space-x-10">
-        <div className=" w-1/2 flex flex-col justfy-center items-start space-y-5">
+      <section className="flex flex-col md:flex-row  justify-center items-center space-x-10">
+        <div className="w-full md:w-1/2 flex flex-col justfy-center items-start space-y-5">
         <div className="flex justify-center items-center gap-x-4">
         <hr className="bg-white w-16 h-[0.1rem]"/>
         <h2 className=" text-5xl   text-white font-normal">Skills and Languages</h2>
@@ -126,8 +126,8 @@ export default function Home() {
                  </p>
          </div>
         </div>
-        <div className="w-1/2">
-        <div className="flex flex-wrap md:w-[98%] items-start justify-start gap-y-7 md:gap-y-10  gap-x-2 md:gap-x-8 mt-4">
+        <div className=" w-full md:w-1/2">
+        <div className="flex flex-wrap  md:w-[98%] items-start justify-start gap-y-7 md:gap-y-10  gap-x-2 md:gap-x-8 mt-4">
         <TechStackCard icon={FaHtml5} language="HTML 5" domain="frontend"/>
       <TechStackCard icon={FaCss3Alt} language="CSS 3" domain="frontend"/>
       <TechStackCard icon={FaJsSquare} language="Javascript" domain=""/>
@@ -150,7 +150,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="flex flex-col justify-center items-center py-36 ">
+      <section className="flex flex-col justify-center items-start md:items-center py-36 ">
 <div className="flex justify-center items-center gap-6">
   <hr className="w-10 h-[0.1rem]"/>
 <h2 className="text-[4rem] text-white">Interested in working together ?</h2>
@@ -170,8 +170,6 @@ export default function Home() {
 </button>
 </div>
       </section>
-
-     
     </main>
   );
 }
