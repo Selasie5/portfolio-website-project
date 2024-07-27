@@ -170,7 +170,7 @@ export default function Home() {
 <h2 className="text-[4rem] text-white text-center">Interested in working together ?</h2>
 <hr className="w-10 h-[0.1rem]"/>
 </div>
-<div className="inview flex  flex-col justify-center items-center gap-4 my-2">
+<div className="inview flex  flex-col md:flex-row justify-center items-center gap-4 my-2">
 <button className="border border-white  text-white rounded-sm text-sm font-bold px-8 py-[0.9em] hover:border-none hover:bg-green-300 hover:text-white ">
   <Link href="">
   Send A Message
