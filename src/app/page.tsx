@@ -6,6 +6,9 @@ import Link from "next/link";
 import ProjectCard from "./components/ProjectCard";
 import TechStackCard from "./components/Skills";
 import Loader from "./components/Loader";
+import {Links} from "../utils/Links"
+import { ProjectGithub } from "../utils/Links";
+import {motion} from "framer-motion"
 import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact } from 'react-icons/fa';
 import { 
   SiTypescript,
@@ -21,7 +24,19 @@ import {
   SiFigma
 } from "react-icons/si";
 
+const containerVariants = {
+  hidden: { opacity: 0, x: -100 },
+  visible: { opacity: 1, x: 0, transition: { duration: 1 } }
+};
+
+const itemVariantss = {
+  hidden: { opacity: 0, y: -20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+};
+
 export default function Home() {
+
+  
  
   const [loading, setLoading] = useState(true);
 
@@ -40,69 +55,86 @@ export default function Home() {
     return <Loader />;
   }
   return (
-    <main >
+    <motion.main 
+    intial="hidden"
+    animate="visible"
+    variants={containerVariants}>
+    
 
-      <section className=" h-auto flex flex-col justify-center items-start mt-6 mb-24  ">
+      <motion.section
+       className=" h-auto flex flex-col justify-center items-start mt-6 mb-24  "
+       variants={containerVariants}
+       >
         {/* Hero Section(Main) */}
-        <div className="flex items-center justify-center px-3 py-2 gap-x-2 bg-white/10 rounded-full group my-6 hover:cursor-pointer">
+        <motion.div
+        variants={itemVariantss}
+         className="flex items-center justify-center px-3 py-2 gap-x-2 bg-white/10 rounded-full group my-6 hover:cursor-pointer">
         <div className="h-3 w-3 bg-green-500 rounded-full"></div>
         <span className="text-white font-Sans text-sm group-hover:hidden"> Currently based in Accra, Ghana 🌍</span>
         <span className="text-white font-Sans text-sm hidden group-hover:block"> But available to work remotely 🌍</span>
-        </div>
+        </motion.div>
         <div className="flex justify-center items-center gap-x-5">
           <hr className="bg-white w-16 h-[0.1rem]"/>
           <h1 className=" text-6xl text-white font-medium leading-normal">
             Hi there, <br/>
           </h1>
         </div>
-      <div className="flex ">
+      <motion.div
+      variants={itemVariantss}
+       className="flex ">
       <h2 className=" text-6xl font-medium text-white leading-normal">I am   {" "}{" "}<span className="scale-3">👨🏻‍🦱</span>
           <br/>
           Selasie Sepenu {" "}.
           <span className="text-green-300"> Software Engineer</span>
         </h2> 
-      </div>
+      </motion.div>
        
 
         {/* About Me  */}
-         <div className="pt-10 md:w-2/3">
+         <motion.div 
+         variants={itemVariantss}
+         className="pt-10 md:w-2/3">
          <p className="text-white text-lg font-[100] leading-normal">I am currently a software engineering fellow at {" "}
           <span className="font-normal text-green-300">
-          <Link href="">
+          <Link href={Links[0]}>
           Headstarter AI
           </Link>
             </span> leveraging some of the most amazing AI technologies, app development frameworks and APIs to build innovative
             software solution. I bring strong problem solving , collaboration and technical skills to any team I join or projects I work on.
           </p>
-         </div>
+         </motion.div>
          <div className="py-10 w-2/3">
          <p className=" text-white text-lg font-[100] leading-normal">Check out my{" "}
           <span className="font-normal text-green-300">
-          <Link href="">
+          <Link href={Links[5]}>
           Resume  
           </Link>
             </span>{" "} / {" "}
           <span className="font-normal text-green-300">
-          <Link href="">
+          <Link href={Links[1 ]}>
           Github  
           </Link>
             </span>{" "}
            to learn more about my skills 
                  </p>
          </div>
-      </section>
-      <section className="flex flex-col justify-center items-start space-y-24 my-24">
-        <div className="flex justify-center items-center gap-x-4">
+      </motion.section>
+      <motion.section 
+      variants={containerVariants}
+      className="flex flex-col justify-center items-start space-y-24 my-24">
+        <motion.div 
+        variants={itemVariantss}
+        className="flex justify-center items-center gap-x-4">
         <hr className="bg-white w-16 h-[0.1rem]"/>
-        <h2 className="text-5xl  text-white font-normal">Projects I've worked on</h2>
-        </div>
+        <h2 className="text-5xl  text-white font-normal">Projects I&apos;ve worked on</h2>
+        </motion.div>
         <div className="grid  md:grid-cols-2 place-items-center gap-10 mt-5">
-        <ProjectCard title="Mailchimp Connect API"  overview ="This API was built to connect the waitlist form on a website to mailchimp, so transactional or marketing email sending can be easily done." githubLink="https://github.com/Selasie5/nodejs-mailchimp-connect-api.git" liveLink="https://obscure-bayou-70531-89c434274098.herokuapp.com/api-docs/" techStack={["NodeJS", "Express JS","Typescript","Heroku","Mailchimp API"]} bgColor="bg-purple-500/30" hoverBgColor="hover:bg-purple-500/50"/>
-          <ProjectCard title="Notify"  overview ="This is a fullstack web-application with authentication and CRUD feature that enables people to take notes , pin them and effectively filter them based on category" githubLink="" liveLink="" techStack={["React JS", "Tailwind CSS","Node JS","Express JS","MongoDB","Render"]} bgColor="bg-green-500/30" hoverBgColor="hover:bg-green-500/50"/>
-          <ProjectCard title="Droply"  overview ="This API was built to connect the waitlist form on a website to mailchimp, so transactional or marketing email sending can be easily done." githubLink="" liveLink="" techStack={["Next JS","Tailwind CSS", "Typescript","Firebase","Render"]} bgColor="bg-blue-500/30" hoverBgColor="hover:bg-blue-500/50"/>
-          <ProjectCard title="ElastiSearch"  overview="This is a fullstack web application that leverages the high-performace searching ability of PostgreSQL to model a search engine for a database seeded with jacket data " githubLink="" liveLink="" techStack={["Next JS","Tailwind CSS", "Typescript","Neon","PostgreSQL","Drizzle ORM","Render"]} bgColor="bg-emerald-500/30" hoverBgColor="hover:bg-emerald-500/50"/>
+        <ProjectCard title="Mailchimp Connect API"  overview ="This API was built to connect the waitlist form on a website to mailchimp, so transactional or marketing email sending can be easily done." githubLink={ProjectGithub[3]} liveLink="" techStack={["NodeJS", "Express JS","Typescript","Heroku","Mailchimp API"]} bgColor="bg-purple-500/30" hoverBgColor="hover:bg-purple-500/50"/>
+          <ProjectCard title="Notify"  overview ="This is a fullstack web-application with authentication and CRUD feature that enables people to take notes , pin them and effectively filter them based on category" githubLink={ProjectGithub[1]} liveLink="" techStack={["React JS", "Tailwind CSS","Node JS","Express JS","MongoDB","Render"]} bgColor="bg-green-500/30" hoverBgColor="hover:bg-green-500/50"/>
+        <ProjectCard title="Booking.com/Clone"  overview ="This API was built to connect the waitlist form on a website to mailchimp, so transactional or marketing email sending can be easily done." githubLink={ProjectGithub[0]} liveLink="" techStack={["Next JS","Tailwind CSS", "Typescript","Shadcn UI","Oxylabs"]} bgColor="bg-blue-500/30" hoverBgColor="hover:bg-blue-500/50"/>
+          <ProjectCard title="ElastiSearch"  overview="This is a fullstack web application that leverages the high-performace searching ability of PostgreSQL to model a search engine for a database seeded with jacket data " githubLink={ProjectGithub[2]} liveLink="" techStack={["Next JS","Tailwind CSS", "Typescript","Neon","PostgreSQL","Drizzle ORM","Render"]} bgColor="bg-emerald-500/30" hoverBgColor="hover:bg-emerald-500/50"/>
         </div>
-      </section>
+      </motion.section>
       <section className="flex flex-col md:flex-row  justify-center items-center space-x-10">
         <div className="w-full md:w-1/2 flex flex-col justfy-center items-start space-y-5">
         <div className="flex justify-center items-center gap-x-4">
@@ -150,10 +182,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="flex flex-col justify-center items-start md:items-center py-36 ">
+      <section className="flex flex-col justify-center items-center md:items-center py-36 ">
 <div className="flex justify-center items-center gap-6">
   <hr className="w-10 h-[0.1rem]"/>
-<h2 className="text-[4rem] text-white">Interested in working together ?</h2>
+<h2 className="text-[4rem] text-white text-center">Interested in working together ?</h2>
 <hr className="w-10 h-[0.1rem]"/>
 </div>
 <div className="flex justify-center items-center gap-4 my-2">
@@ -164,12 +196,12 @@ export default function Home() {
 </button>{" "}
 <span className="text-white text-4xl"> / </span>
 <button className="border border-white  text-white rounded-sm text-sm font-bold px-8 py-[0.9rem] hover:border-none hover:bg-green-300 hover:text-white">
-  <Link href="">
+  <Link href="https://calendly.com/selasisepenu5/let-s-connect">
   Schedule A Meeting
   </Link>
 </button>
 </div>
       </section>
-    </main>
+    </motion.main>
   );
 }

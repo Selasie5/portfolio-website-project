@@ -1,29 +1,40 @@
-"use client"
-import React,{useState, useEffect} from 'react'
-import moment from "moment";
+"use client";
+import React, { useState, useEffect } from 'react';
+import moment from 'moment';
 
 const Header = () => {
-    const [visitDate, setVisitDate] = useState("");
-    const [visitTime, setVisitTime] = useState("");
-    useEffect(() => {
-        const visitTimestamp = localStorage.getItem("visitTimestamp");
-        if (visitTimestamp) {
-          const lastVisit = moment(visitTimestamp);
-          setVisitDate(lastVisit.format("MMMM Do YYYY"));
-          setVisitTime(lastVisit.format("h:mm:ss a"));
-        } else {
-          const now = moment();
-          localStorage.setItem("visitTimestamp", now.format());
-          setVisitDate(now.format("MMMM Do YYYY"));
-          setVisitTime(now.format("h:mm:ss a"));
-        }
-      }, []);
-  return (
-    <header className="flex justify-between item-center">
-    <p className="text-white text-xl py-10 italic">Dr_Seps</p>
-    <p className="text-white text-xl py-10 italic">{visitDate} | {visitTime}</p>
-    </header>
-  )
-}
+  const [currentDate, setCurrentDate] = useState('');
+  const [currentTime, setCurrentTime] = useState('');
 
-export default Header
+  useEffect(() => {
+    // Function to update date and time
+    const updateDateTime = () => {
+      const now = moment();
+      setCurrentDate(now.format("MMMM Do YYYY"));
+      setCurrentTime(now.format("h:mm:ss a"));
+    };
+
+    // Update immediately after mount
+    updateDateTime();
+
+    // Set an interval to update every second
+    const intervalId = setInterval(updateDateTime, 1000);
+
+    // Cleanup interval on component unmount
+    return () => clearInterval(intervalId);
+  }, []);
+
+  // Avoid rendering until date and time are set
+  if (!currentDate || !currentTime) {
+    return null;
+  }
+
+  return (
+    <header className="flex justify-between items-center">
+      <p className="text-white text-xl py-10 italic">Dr_Seps</p>
+      <p className="font-Poppins text-white text-md py-10">{currentDate} | {currentTime} GMT</p>
+    </header>
+  );
+};
+
+export default Header;
