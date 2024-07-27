@@ -56,7 +56,7 @@ export default function Home() {
   }
   return (
     <motion.main 
-    intial="hidden"
+    initial="hidden"
     animate="visible"
     variants={containerVariants}>
     
