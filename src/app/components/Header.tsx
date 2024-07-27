@@ -32,7 +32,7 @@ const Header = () => {
   return (
     <header className="flex justify-between items-center">
       <p className="text-white text-xl py-10 italic">Dr_Seps</p>
-      <p className="font-Poppins text-white text-md py-10">{currentDate} | {currentTime} GMT</p>
+      <p className=" text-white text-md py-10">{currentDate} | {currentTime} GMT</p>
     </header>
   );
 };
