@@ -24,15 +24,7 @@ import {
   SiFigma
 } from "react-icons/si";
 
-const containerVariants = {
-  hidden: { opacity: 0, x: -100 },
-  visible: { opacity: 1, x: 0, transition: { duration: 1 } }
-};
 
-const itemVariantss = {
-  hidden: { opacity: 0, y: -20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
-};
 
 export default function Home() {
 
@@ -55,45 +47,37 @@ export default function Home() {
     return <Loader />;
   }
   return (
-    <motion.main 
-    initial="hidden"
-    animate="visible"
-    variants={containerVariants}>
+    <main>
     
 
-      <motion.section
+      <section
        className=" h-auto flex flex-col justify-center items-start mt-6 mb-24  "
-       variants={containerVariants}
        >
         {/* Hero Section(Main) */}
-        <motion.div
-        variants={itemVariantss}
-         className="flex items-center justify-center px-3 py-2 gap-x-2 bg-white/10 rounded-full group my-6 hover:cursor-pointer">
+        <div
+         className="inview flex items-center justify-center px-3 py-2 gap-x-2 bg-white/10 rounded-full group my-6 hover:cursor-pointer">
         <div className="h-3 w-3 bg-green-500 rounded-full"></div>
         <span className="text-white font-Sans text-sm group-hover:hidden"> Currently based in Accra, Ghana 🌍</span>
         <span className="text-white font-Sans text-sm hidden group-hover:block"> But available to work remotely 🌍</span>
-        </motion.div>
-        <div className="flex justify-center items-center gap-x-5">
+        </div>
+        <div className="inview flex justify-center items-center gap-x-5">
           <hr className="bg-white w-16 h-[0.1rem]"/>
           <h1 className=" text-6xl text-white font-medium leading-normal">
             Hi there, <br/>
           </h1>
         </div>
-      <motion.div
-      variants={itemVariantss}
-       className="flex ">
+      <div className=" inview flex ">
       <h2 className=" text-6xl font-medium text-white leading-normal">I am   {" "}{" "}<span className="scale-3">👨🏻‍🦱</span>
           <br/>
           Selasie Sepenu {" "}.
           <span className="text-green-300"> Software Engineer</span>
         </h2> 
-      </motion.div>
+      </div>
        
 
         {/* About Me  */}
-         <motion.div 
-         variants={itemVariantss}
-         className="pt-10 md:w-2/3">
+         <div 
+         className="inview pt-10 md:w-2/3">
          <p className="text-white text-lg font-[100] leading-normal">I am currently a software engineering fellow at {" "}
           <span className="font-normal text-green-300">
           <Link href={Links[0]}>
@@ -102,8 +86,8 @@ export default function Home() {
             </span> leveraging some of the most amazing AI technologies, app development frameworks and APIs to build innovative
             software solution. I bring strong problem solving , collaboration and technical skills to any team I join or projects I work on.
           </p>
-         </motion.div>
-         <div className="py-10 w-2/3">
+         </div>
+         <div className="inview py-10 w-2/3">
          <p className=" text-white text-lg font-[100] leading-normal">Check out my{" "}
           <span className="font-normal text-green-300">
           <Link href={Links[5]}>
@@ -118,31 +102,29 @@ export default function Home() {
            to learn more about my skills 
                  </p>
          </div>
-      </motion.section>
-      <motion.section 
-      variants={containerVariants}
+      </section>
+      <section 
       className="flex flex-col justify-center items-start space-y-24 my-24">
-        <motion.div 
-        variants={itemVariantss}
-        className="flex justify-center items-center gap-x-4">
+        <div 
+        className="inview flex justify-center items-center gap-x-4">
         <hr className="bg-white w-16 h-[0.1rem]"/>
         <h2 className="text-5xl  text-white font-normal">Projects I&apos;ve worked on</h2>
-        </motion.div>
-        <div className="grid  md:grid-cols-2 place-items-center gap-10 mt-5">
+        </div>
+        <div className="inview grid  md:grid-cols-2 place-items-center gap-10 mt-5">
         <ProjectCard title="Mailchimp Connect API"  overview ="This API was built to connect the waitlist form on a website to mailchimp, so transactional or marketing email sending can be easily done." githubLink={ProjectGithub[3]} liveLink="" techStack={["NodeJS", "Express JS","Typescript","Heroku","Mailchimp API"]} bgColor="bg-purple-500/30" hoverBgColor="hover:bg-purple-500/50"/>
           <ProjectCard title="Notify"  overview ="This is a fullstack web-application with authentication and CRUD feature that enables people to take notes , pin them and effectively filter them based on category" githubLink={ProjectGithub[1]} liveLink="" techStack={["React JS", "Tailwind CSS","Node JS","Express JS","MongoDB","Render"]} bgColor="bg-green-500/30" hoverBgColor="hover:bg-green-500/50"/>
         <ProjectCard title="Booking.com/Clone"  overview ="This API was built to connect the waitlist form on a website to mailchimp, so transactional or marketing email sending can be easily done." githubLink={ProjectGithub[0]} liveLink="" techStack={["Next JS","Tailwind CSS", "Typescript","Shadcn UI","Oxylabs"]} bgColor="bg-blue-500/30" hoverBgColor="hover:bg-blue-500/50"/>
           <ProjectCard title="ElastiSearch"  overview="This is a fullstack web application that leverages the high-performace searching ability of PostgreSQL to model a search engine for a database seeded with jacket data " githubLink={ProjectGithub[2]} liveLink="" techStack={["Next JS","Tailwind CSS", "Typescript","Neon","PostgreSQL","Drizzle ORM","Render"]} bgColor="bg-emerald-500/30" hoverBgColor="hover:bg-emerald-500/50"/>
         </div>
-      </motion.section>
+      </section>
       <section className="flex flex-col md:flex-row  justify-center items-center space-x-10">
         <div className="w-full md:w-1/2 flex flex-col justfy-center items-start space-y-5">
-        <div className="flex justify-center items-center gap-x-4">
+        <div className="inview flex justify-center items-center gap-x-4">
         <hr className="bg-white w-16 h-[0.1rem]"/>
         <h2 className=" text-5xl   text-white font-normal">Skills and Languages</h2>
         </div>
         <p className=" text-white text-lg font-light">Experienced in crafting detailed UIs with React and Next JS. My projects span fintech, social networking, and service industries, focusing on scalable and user-optimized solutions.</p>
-        <div className="py-10 w-2/3">
+        <div className="inview py-10 w-2/3">
          <p className=" text-white text-lg font-[100] leading-normal">Check out my{" "}
           <span className="font-normal text-green-300">
           <Link href="">
@@ -159,7 +141,7 @@ export default function Home() {
          </div>
         </div>
         <div className=" w-full md:w-1/2">
-        <div className="flex flex-wrap  md:w-[98%] items-start justify-start gap-y-7 md:gap-y-10  gap-x-2 md:gap-x-8 mt-4">
+        <div className=" inview flex flex-wrap  md:w-[98%] items-start justify-start gap-y-7 md:gap-y-10  gap-x-2 md:gap-x-8 mt-4">
         <TechStackCard icon={FaHtml5} language="HTML 5" domain="frontend"/>
       <TechStackCard icon={FaCss3Alt} language="CSS 3" domain="frontend"/>
       <TechStackCard icon={FaJsSquare} language="Javascript" domain=""/>
@@ -183,12 +165,12 @@ export default function Home() {
       </section>
 
       <section className="flex flex-col justify-center items-center md:items-center py-36 ">
-<div className="flex justify-center items-center gap-6">
+<div className="inview flex justify-center items-center gap-6">
   <hr className="w-10 h-[0.1rem]"/>
 <h2 className="text-[4rem] text-white text-center">Interested in working together ?</h2>
 <hr className="w-10 h-[0.1rem]"/>
 </div>
-<div className="flex justify-center items-center gap-4 my-2">
+<div className="inview flex justify-center items-center gap-4 my-2">
 <button className="border border-white  text-white rounded-sm text-sm font-bold px-8 py-[0.9em] hover:border-none hover:bg-green-300 hover:text-white ">
   <Link href="">
   Send A Message
@@ -202,6 +184,6 @@ export default function Home() {
 </button>
 </div>
       </section>
-    </motion.main>
+    </main>
   );
 }
