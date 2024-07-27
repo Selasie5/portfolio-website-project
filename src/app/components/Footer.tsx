@@ -27,7 +27,7 @@ const Footer = () => {
         </Link>
       </span> 
     </div>
-<span className="text-gray-400">Designed and developed by Selasie Sepenu</span>
+<span className="text-gray-400 sm:text-center">Designed and developed by Selasie Sepenu</span>
   </footer>
   )
 }

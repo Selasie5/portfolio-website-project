@@ -87,7 +87,7 @@ export default function Home() {
             software solution. I bring strong problem solving , collaboration and technical skills to any team I join or projects I work on.
           </p>
          </div>
-         <div className="inview py-10 w-2/3">
+         <div className="inview py-10 w-full md:w-2/3">
          <p className=" text-white text-lg font-[100] leading-normal">Check out my{" "}
           <span className="font-normal text-green-300">
           <Link href={Links[5]}>
@@ -104,7 +104,7 @@ export default function Home() {
          </div>
       </section>
       <section 
-      className="flex flex-col justify-center items-start space-y-24 my-24">
+      className="flex flex-col justify-center items-start space-y-16 my-24">
         <div 
         className="inview flex justify-center items-center gap-x-4">
         <hr className="bg-white w-16 h-[0.1rem]"/>
@@ -124,7 +124,7 @@ export default function Home() {
         <h2 className=" text-5xl   text-white font-normal">Skills and Languages</h2>
         </div>
         <p className=" text-white text-lg font-light">Experienced in crafting detailed UIs with React and Next JS. My projects span fintech, social networking, and service industries, focusing on scalable and user-optimized solutions.</p>
-        <div className="inview py-10 w-2/3">
+        <div className="inview py-10 md:w-2/3">
          <p className=" text-white text-lg font-[100] leading-normal">Check out my{" "}
           <span className="font-normal text-green-300">
           <Link href="">
@@ -170,7 +170,7 @@ export default function Home() {
 <h2 className="text-[4rem] text-white text-center">Interested in working together ?</h2>
 <hr className="w-10 h-[0.1rem]"/>
 </div>
-<div className="inview flex justify-center items-center gap-4 my-2">
+<div className="inview flex  flex-col justify-center items-center gap-4 my-2">
 <button className="border border-white  text-white rounded-sm text-sm font-bold px-8 py-[0.9em] hover:border-none hover:bg-green-300 hover:text-white ">
   <Link href="">
   Send A Message
