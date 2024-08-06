@@ -9,7 +9,8 @@ import Loader from "./components/Loader";
 import {Links} from "../utils/Links"
 import { ProjectGithub } from "../utils/Links";
 import {motion} from "framer-motion"
-import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact } from 'react-icons/fa';
+import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact,FaGitAlt  } from 'react-icons/fa';
+import { GrCycle } from "react-icons/gr";
 import { 
   SiTypescript,
   SiNextdotjs,
@@ -157,9 +158,9 @@ export default function Home() {
       <TechStackCard icon={ SiFirebase } language="Firebase" domain="backend"/>
       <TechStackCard icon={  SiJest } language="Jest" domain="testing"/>
       <TechStackCard icon={  SiFigma } language="Figma" domain="frontend"/>
-      <TechStackCard icon={  SiFigma } language="Git" domain="frontend"/>
+      <TechStackCard icon={ FaGitAlt} language="Git" domain="frontend"/>
       <TechStackCard icon={  SiFigma } language="Agile" domain="frontend"/>
-      <TechStackCard icon={  SiFigma } language="CI/CD" domain="frontend"/>
+      <TechStackCard icon={  GrCycle } language="CI/CD" domain="frontend"/>
         </div>
         </div>
       </section>
