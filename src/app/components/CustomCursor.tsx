@@ -25,8 +25,8 @@ const CustomCursor: React.FC = () => {
 
   return (
     <>
-      <div className={styles.small}></div>
-      <div className={styles.big}></div>
+      <div className={`sm:hidden md:block ${styles.small}`}></div>
+      <div className={`sm:hidden md:block ${styles.big}`}></div>
     </>
   );
 };
